@@ -124,10 +124,6 @@ class PIP(object):
 
 # Setup initial loggers
 
-tmpfile = tempfile.TemporaryFile('w+', encoding='utf8')
-log = logging.getLogger('launcher')
-log.setLevel(logging.DEBUG)
-
 sh = logging.StreamHandler(stream=sys.stdout)
 sh.setFormatter(logging.Formatter(
     fmt="[%(levelname)s] %(name)s: %(message)s"
