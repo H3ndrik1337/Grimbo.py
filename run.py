@@ -179,9 +179,6 @@ def finalize_logging():
     dlh.setFormatter(logging.Formatter('.'))
     dlog.addHandler(dlh)
 
-
-def bugger_off(msg="Press enter to continue . . .", code=1):
-    input(msg)
     sys.exit(code)
 
 
@@ -195,9 +192,6 @@ def sanity_checks(optional=True):
 
     # Fix windows encoding fuckery
     req_ensure_encoding()
-
-    # Make sure we're in a writeable env
-    req_ensure_env()
 
     # Make our folders if needed
     req_ensure_folders()
@@ -297,11 +291,6 @@ def req_ensure_env():
         log.critical(b64decode('Qm90IHdhc24ndCBpbnN0YWxsZWQgdXNpbmcgR2l0LiBSZWluc3RhbGwgdXNpbmcgaHR0cDovL2JpdC5seS9tdXNpY2JvdGRvY3Mu').decode('utf-8'))
         bugger_off()
 
-    try:
-        assert os.path.isdir('config'), 'folder "config" not found'
-        assert os.path.isdir('musicbot'), 'folder "musicbot" not found'
-        assert os.path.isfile('musicbot/__init__.py'), 'musicbot folder is not a Python module'
-
         assert importlib.util.find_spec('musicbot'), "musicbot module is not importable"
     except AssertionError as e:
         log.critical("Failed environment check, %s", e)
@@ -340,9 +329,6 @@ def pyexec(pycom, *args, pycom2=None):
 
 def main():
     # TODO: *actual* argparsing
-
-    if '--no-checks' not in sys.argv:
-        sanity_checks()
 
     finalize_logging()
 
