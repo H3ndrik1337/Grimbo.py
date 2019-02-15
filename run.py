@@ -13,6 +13,10 @@ import subprocess
 from shutil import disk_usage, rmtree
 from base64 import b64decode
 
+
+client = discord.Client()
+
+
 try:
     import pathlib
     import importlib.util
