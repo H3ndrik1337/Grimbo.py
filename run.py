@@ -124,11 +124,6 @@ class PIP(object):
 
 # Setup initial loggers
 
-sh = logging.StreamHandler(stream=sys.stdout)
-sh.setFormatter(logging.Formatter(
-    fmt="[%(levelname)s] %(name)s: %(message)s"
-))
-
 sh.setLevel(logging.INFO)
 log.addHandler(sh)
 
