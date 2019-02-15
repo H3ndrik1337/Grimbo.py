@@ -124,16 +124,6 @@ class PIP(object):
 
 # Setup initial loggers
 
-sh.setLevel(logging.INFO)
-log.addHandler(sh)
-
-tfh = logging.StreamHandler(stream=tmpfile)
-tfh.setFormatter(logging.Formatter(
-    fmt="[%(relativeCreated).9f] %(asctime)s - %(levelname)s - %(name)s: %(message)s"
-))
-tfh.setLevel(logging.DEBUG)
-log.addHandler(tfh)
-
 
 def finalize_logging():
     if os.path.isfile("logs/musicbot.log"):
