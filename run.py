@@ -291,11 +291,6 @@ def req_ensure_env():
         log.critical(b64decode('Qm90IHdhc24ndCBpbnN0YWxsZWQgdXNpbmcgR2l0LiBSZWluc3RhbGwgdXNpbmcgaHR0cDovL2JpdC5seS9tdXNpY2JvdGRvY3Mu').decode('utf-8'))
         bugger_off()
 
-        assert importlib.util.find_spec('musicbot'), "musicbot module is not importable"
-    except AssertionError as e:
-        log.critical("Failed environment check, %s", e)
-        bugger_off()
-
     try:
         os.mkdir('musicbot-test-folder')
     except Exception:
