@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 
-from __future__ import print_function
 import discord
+from discord.ext import commands
+from discord.ext.commands import Bot
+import asyncio
+import random
+import requests
 import os
-import sys
-import time
-import logging
-import tempfile
-import traceback
-import subprocess
+import youtube_dl
 
 from shutil import disk_usage, rmtree
 from base64 import b64decode
